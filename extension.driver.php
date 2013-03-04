@@ -54,7 +54,9 @@
 			$param_pool = $context['param_pool'];
 			
 			// don't cache if no cache TTL is set at all
-			if(!isset($ds->dsParamCACHE)) return;
+			if(!isset($ds->dsParamCACHE)){
+				$ds->dsParamCACHE = 60*60*24*7*52;
+			}
 			// don't cache when the TTL is zero
 			if((int)$ds->dsParamCACHE == 0) return;
 				
